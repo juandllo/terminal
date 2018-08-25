@@ -1,52 +1,51 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js"></script>
 <div class="container">
     <h2 class="titulo">Gestionar servicios</h2>
 </div>
 <div class="container row">
   <div class="col-md-12">
-    <h4 class="titulo">Crear</h4>
-    <form [formGroup]="formulario" class="form-inline">
-      <div class="input-group col-sm-6 data">
-        <div class="prepend">
-          <span class="input-group-text" id="basic-addon1">></span>
+    <form [formGroup]="formulario" class="">
+      <div class="form-row">
+        <div class="form-group col-sm-6">
+          <label for="nombre">Nombre</label>
+          <input type="text" class="form-control" id="nombre" 
+            required placeholder="Nombre" formControlName="nombre" />
         </div>
-        <input type="text" class="form-control" id="nombre" 
-          required placeholder="Nombre" formControlName="nombre" />
-      </div>
-      <div class="input-group col-sm-6 data">
-        <div class="prepend">
-          <span class="input-group-text" id="basic-addon1">></span>
+        <div class="form-group col-sm-6">
+          <label for="url">Url</label>
+          <input type="text" class="form-control" id="url" 
+            required placeholder="Url" formControlName="ruta" />
         </div>
-        <input type="text" class="form-control" id="url" 
-          required placeholder="Url" formControlName="ruta" />
       </div>
-      <div class="input-group col-sm-6 data">
-          <div class="prepend">
-              <span class="input-group-text" id="basic-addon1">></span>
-          </div>
-          <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="metodo" formControlName="metodo" required>
-            <option selected>Seleccionar...</option>
-            <option value="1">GET</option>
-            <option value="2">POST</option>
-            <option value="3">PUT</option>
-            <option value="4">DELETE</option>
-            <option value="5">PATCH</option>
-          </select>
+      <div class="form-row">
+        <div class="form-group col-sm-6">
+            <label for="metodo">Método</label>
+            <select class="form-control custom-select" id="metodo" formControlName="metodo" required>
+                <option value="0" selected>Seleccionar...</option>
+                <option value="1">GET</option>
+                <option value="2">POST</option>
+                <option value="3">PUT</option>
+                <option value="4">DELETE</option>
+                <option value="5">PATCH</option>
+            </select>
+        </div> 
+      </div>
+      <div class="form-row">
+        <div class="col-sm-12 code-editor">
+            <div ace-editor
+              mode="json"
+              [(text)]="text"
+              [options]="options"
+              [autoUpdateContent]="true" 
+              [durationBeforeCallback]="1000"
+              (textChanged)="onChange($event)"
+              style="min-height: 200px; overflow: auto;"></div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-sm-12">
+          <input type="button" class="float-right btn btn-info" (click)= "crearServicio()" value="Guardar"/>
+        </div> 
       </div> 
-      <div class="col-sm-12 data">
-          <div ace-editor
-            mode="json"
-            [(text)]="text"
-            [options]="options"
-            [autoUpdateContent]="true" 
-            [durationBeforeCallback]="1000"
-            (textChanged)="onChange($event)"
-            style="min-height: 200px; overflow: auto;"
-          ></div>
-      </div>
-      <div class="col-sm-12">
-        <input type="button" class="float-right" (click)= "crearServicio()" value="[Guardar]"/>
-      </div>  
     </form>
   </div>
 </div>

@@ -1,126 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
-@import url(https://fonts.googleapis.com/css?family=Share+Tech+Mono);
+/*@import url(https://fonts.googleapis.com/css?family=Share+Tech+Mono);*/
 
 :root {
-    --main-font-color : #00FF66;
-    --main-sec-font-color : #66FF66 ;
-    --sec-font-color: #FFB000;
     --gray-font-color: #979797;
-    --main-button-color: rgba(3, 177, 41, 0.233);
+    --main-bg-message-success: #218838;
+    --main-bg-side-color: #116a78;
+    --main-bg-message-error: #c82333;
 }
 
 body {
-    background-color: black;
-    color: var(--main-font-color);
+    /*background-color: black;*/
+    /*color: var(--main-font-color);
     font-family: 'Share Tech Mono', monospace;
-    background: url(https://image.ibb.co/h2hLAJ/bg.png) #000;
+    /*background: url(https://image.ibb.co/h2hLAJ/bg.png) #000;*/
     position: relative;
-    height: 100vh
-}
-
-fieldset {
-    display: block;
-    -webkit-margin-start: 2px;
-    -webkit-margin-end: 2px;
-    -webkit-padding-before: 0.35em;
-    -webkit-padding-start: 0.75em;
-    -webkit-padding-end: 0.75em;
-    -webkit-padding-after: 0.625em;
-    min-width: -webkit-min-content;
-    border-width: 2px;
-    border-color: white;
-    border-style: dashed;
-    border-image: initial;
-}
-
-.contenedorPrincipal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-.label-data {
-    margin-bottom: -0.5rem;
-    color: white;
-}
-
-.subTitulo {
-    color: var(--sec-font-color);
-    margin-top: -5%;
-}
-
-input[type=text], input[type=password], .custom-select {
-    background-color: black;
-    border-left: none;
-    color: var(--gray-font-color);
-    height: 32px;
-    padding-left:5px;
-    width: 280px ;
-    border-radius: 0px;
-}
-
-input[type=text]:focus, input[type=password]:focus, .custom-select:focus {
-    background-color: black;
-    border:solid 1px var(--main-sec-font-color);
-    border-left: none;
-    color: var(--gray-font-color);
-    outline:0; /* I have also tried outline:none */
-    -webkit-appearance:none;
-    box-shadow: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    caret-color: var(--main-font-color);
-}
-
-.prepend span {
-    background-color: black;
-    border: solid 1px var(--main-font-color);
-    border-right: none;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-radius: 0px;
-    color: var(--gray-font-color);
-    height: 32px;
-    padding-left:10px;
-}
-
-.label-span {
-    color: var(--sec-font-color);
-}
-
-.my-navbar {
-    border-bottom: solid 1px var(--main-font-color);
-    margin-bottom: 10px;
-}
-
-.navbar-brand:hover {
-    color: white;
-    text-shadow: 0 0 5px white;
-}
-
-.nav-link:hover {
-    color: white;
-    text-shadow: 0 0 5px white;
-}
-
-input[type=button]{
-    border: none;
-    padding: 10px 20px;
-    width: auto;
-    overflow: visible;
-    outline: 0;
-    cursor: pointer;
-    background: 0 0;
-    color: inherit;
-    font: inherit;
-    line-height: normal;
-    -webkit-font-smoothing: inherit;
-    -moz-osx-font-smoothing: inherit;
-    -webkit-appearance: none;
-    background: var(--main-button-color);
-    text-transform: uppercase;
+    height: 100vh;
 }
 
 .data {
@@ -136,19 +30,15 @@ input[type=button]{
     background: var(--main-font-color);
 }
 
-h1, h2 {
-    text-shadow: 0 0 5px var(--main-font-color);
-}
-
-h5 {
-    color: var(--sec-font-color);
-}
-
 .alertsContainer[_ngcontent-c1] .alertsRow.error[_ngcontent-c1] .messagepanel[_ngcontent-c1] {
-    background: black !important;
+    background: var(--main-bg-message-error) !important;
     color: white !important;
-    text-shadow: 0 0 5px white;
     padding: 15px;
+}
+
+.alertsContainer[_ngcontent-c1] .alertsRow.error[_ngcontent-c1] {
+    background: var(--main-bg-message-error) !important;
+    color: white !important;
 }
 
 .alertsContainer[_ngcontent-c1] {
@@ -156,7 +46,8 @@ h5 {
 }
 
 .alertsContainer[_ngcontent-c1] .alertsRow.error[_ngcontent-c1] .iconpanel[_ngcontent-c1] {
-    background: url(https://image.ibb.co/h2hLAJ/bg.png) #000 !important;
+    background: var(--main-bg-message-error) !important;
+    color: white !important;
 }
 
 .alertsContainer[_ngcontent-c1] .material-icons[_ngcontent-c1] {
@@ -164,20 +55,17 @@ h5 {
 }
 
 .alertsContainer[_ngcontent-c1] .alertsRow.success[_ngcontent-c1] .iconpanel[_ngcontent-c1] {
-    color: var(--main-font-color) !important;
+    background: var(--main-bg-message-success) !important;
+    color: white !important;
 }
 
-.alertsContainer[_ngcontent-c1] .alertsRow.error[_ngcontent-c1] .iconpanel[_ngcontent-c1] {
-    color: red !important;
+.alertsContainer[_ngcontent-c1] .alertsRow.success[_ngcontent-c1] {
+    background: var(--main-bg-message-success) !important;
+    color: white !important;
 }
 
 .alertsContainer[_ngcontent-c1] .alertsRow.success[_ngcontent-c1] .messagepanel[_ngcontent-c1] {
-    background: black !important;
+    background: var(--main-bg-message-success) !important;
     color: white !important;
-    text-shadow: 0 0 5px white;
     padding: 15px;
-}
-
-.alertsContainer[_ngcontent-c1] .alertsRow.success[_ngcontent-c1] .iconpanel[_ngcontent-c1] {
-    background: url(https://image.ibb.co/h2hLAJ/bg.png) #000 !important;
 }
