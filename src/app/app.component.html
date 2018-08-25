@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg my-navbar sticky-top">
+    <a class="navbar-brand label-span" href="#">Terminal Service</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <label class="my-2 my-sm-0">Juan David Arboleda</label>
+            <a class="nav-link label-span" href="/login">[X]</a>
+        </form>
+    </div>
+</nav>
+
+<div id="wrapper">
+    <div id="sidebar-wrapper">
+        <aside id="sidebar">
+            <ul id="sidemenu" class="sidebar-nav">
+                <li>
+                    <a href="/consolaServicio">
+                        <span class="sidebar-icon"><i class="fa fa-terminal"></i></span>
+                        <span class="sidebar-title">Consola de servicios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/servicio">
+                        <span class="sidebar-icon"><i class="fa fa-cloud"></i></span>
+                        <span class="sidebar-title">Gestionar servicios</span>
+                        <b class="caret"></b>
+                    </a>
+                </li>
+            </ul>
+        </aside>            
+    </div>
+    <div class="container">
+        <app-alerts></app-alerts>
+        <router-outlet></router-outlet>
+    </div>
+</div>

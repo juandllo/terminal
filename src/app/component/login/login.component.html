@@ -1,0 +1,21 @@
+<div id="contenedorPrincipal" class="contenedorPrincipal">
+  <h1 class="titulo">Terminal Service<span class="blinker"></span></h1>
+  <p class="subTitulo">Terminal de servicios.</p>
+  <form>
+    <div class="input-group">
+      <div class="prepend">
+        <span class="input-group-text" id="basic-addon1">></span>
+      </div>
+      <input type="text" class="form-control" id="name" required placeholder="Usuario">
+    </div>
+
+    <div class="input-group">
+        <div class="prepend">
+          <span class="input-group-text" id="basic-addon1">></span>
+        </div>
+      <input type="password" class="form-control" id="password" required placeholder="Contrasena">
+    </div>
+
+    <input type="button" class="float-right" [routerLink]="['/paciente']" value="[Ingresar]"/>
+  </form>
+</div>
