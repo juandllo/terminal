@@ -1,5 +1,3 @@
-@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
-
 .container {
     padding-top: 10px;
 }
@@ -55,6 +53,14 @@
 }
 
 #sidebar-wrapper .sidebar-nav li a:hover {
+    text-shadow: 0 0 5px white;
+}
+
+.is-active {
+    text-shadow: 0 0 5px white;
+}
+
+.nav-link:hover {
     text-shadow: 0 0 5px white;
 }
 

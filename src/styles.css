@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 /*@import url(https://fonts.googleapis.com/css?family=Share+Tech+Mono);*/
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://use.fontawesome.com/releases/v5.2.0/css/all.css');
 
 :root {
     --gray-font-color: #979797;
@@ -8,6 +8,7 @@
     --main-bg-side-color: #116a78;
     --main-bg-message-error: #c82333;
     --main-bg-ppal-container: #dedede;
+    --main-bg-title-color: #6b6b6b;
 }
 
 html {
@@ -17,7 +18,7 @@ html {
 body {
     position: relative;
     height: 100vh;
-    font-family: 'Roboto', Arial, sans-serif;
+    /*font-family: 'Roboto', Arial, sans-serif;*/
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.428571;
@@ -33,12 +34,8 @@ body {
     font-weight: 300;
     letter-spacing: -1px;
     font-size: 2.154rem;
-    color: #6b6b6b;
+    color: white;
     line-height: 36px;
-}
-
-.data {
-   margin: 0 0 2% 0;
 }
 
 .blinker { 
@@ -53,14 +50,6 @@ body {
 .card {
     margin-left: 20px !important;
     margin-top: 7px !important;
-}
-
-.btn-action {
-    margin: 5px;
-}
-
-.card-title {
-    background-color: #f5f5f5 !important;
 }
 
 .alertsContainer[_ngcontent-c1] .alertsRow.error[_ngcontent-c1] .messagepanel[_ngcontent-c1] {

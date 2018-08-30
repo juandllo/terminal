@@ -9,18 +9,21 @@ import { ServicioComponent } from './component/servicio/servicio.component';
 import { LoginComponent } from './component/login/login.component';
 import { AlertsModule } from 'angular-alert-module';
 import { AceEditorModule } from 'ng2-ace-editor';
+import { ConsolaComponent } from './component/consola/consola.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'servicio', component: ServicioComponent},
-  {path: '', redirectTo: '/servicio', pathMatch: 'full'}
+  {path: 'consola', component: ConsolaComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     ServicioComponent,
-    LoginComponent
+    LoginComponent,
+    ConsolaComponent
   ],
   imports: [
     BrowserModule,

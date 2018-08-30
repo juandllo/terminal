@@ -2,7 +2,7 @@
     <a class="navbar-brand" href="#">Terminal Service</a>
 
     <form class="form-inline">
-        <span class="navbar-text">
+        <span class="navbar-text" style="font-weight: bold">
             Juan Arboleda
         </span>
         <a class="nav-link" style="color: white" href="/login">Salir</a>
@@ -14,20 +14,20 @@
         <aside id="sidebar">
             <ul id="sidemenu" class="sidebar-nav">
                 <li>
-                    <a href="/consolaServicio">
+                    <a [routerLink]="['/consola']" [routerLinkActive]="['is-active']">
                         <span class="sidebar-icon"><i class="fa fa-terminal"></i></span>
                         <span class="sidebar-title">Consola de servicios</span>
                     </a>
                 </li>
                 <li>
-                    <a href="/servicio">
-                        <span class="sidebar-icon"><i class="fa fa-cloud"></i></span>
+                    <a [routerLink]="['/servicio']" [routerLinkActive]="['is-active']">
+                        <span class="sidebar-icon"><i class="fas fa-cloud"></i></span>
                         <span class="sidebar-title">Gestionar servicios</span>
                         <b class="caret"></b>
                     </a>
                 </li>
                 <li>
-                    <a href="/servicio">
+                    <a [routerLink]="['/buscarServicio']" [routerLinkActive]="['is-active']">
                         <span class="sidebar-icon"><i class="fa fa-search"></i></span>
                         <span class="sidebar-title">Buscar servicio</span>
                         <b class="caret"></b>
@@ -37,7 +37,7 @@
         </aside>            
     </div>
     <div class="container" style="background-color: #eeeeee">
-        <app-alerts></app-alerts>
         <router-outlet></router-outlet>
+        <app-alerts></app-alerts>
     </div>
 </div>

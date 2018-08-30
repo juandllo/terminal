@@ -3,4 +3,5 @@ export class Servicio {
     nombre: string;
     ruta: string;
     metodo: number;
+    body: string;
 }

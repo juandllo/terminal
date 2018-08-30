@@ -5,9 +5,8 @@ import { Servicio } from '../../model/servicio.model';
 import { Respuesta } from '../../model/respuesta.model';
 import { ServicioService } from '../../service/servicio.service';
 
-import 'ace-builds/src-min-noconflict/ace.js';
+import * as ace from 'brace';
 import 'brace/mode/json';
-import 'ace-builds/src-min-noconflict/snippets/json';
 
 @Component({
   selector: 'app-servicio',
@@ -17,10 +16,23 @@ import 'ace-builds/src-min-noconflict/snippets/json';
 export class ServicioComponent implements OnInit {
 
   servicio: Servicio = new Servicio;
+  allServicios: Servicio[] = new Array();
   respuesta: Respuesta = new Respuesta;
   formulario: FormGroup;
-  text = '//Ingrese los datos del body en formato json';
-  options: any = {maxLines: 1000, printMargin: false, showGutter: true};
+  body: string;
+
+  public editor;
+
+  public editorOptions: any = {
+      showPrintMargin: true,
+      showInvisibles: true,
+      highlightGutterLine: true,
+      highlightActiveLine: true,
+      fadeFoldWidgets: true,
+      showLineNumbers: true,
+      fontSize: 16,
+      mode: 'ace/mode/json'
+  };
 
   constructor(private _servicioService: ServicioService, private alerts: AlertsService) { }
 
@@ -30,23 +42,39 @@ export class ServicioComponent implements OnInit {
 
   private inicializarFormulario () {
     this.servicio = new Servicio;
+    this.allServicios = new Array();
     this.formulario = new FormGroup ({
       codigo: new FormControl,
       nombre: new FormControl,
       ruta: new FormControl,
       metodo: new FormControl
     });
+
+    this.formulario.setValue({
+      codigo: 0,
+      nombre: '',
+      ruta: '',
+      metodo: 0
+    });
+
+    this.body = '';
+    this.editor = ace.edit('editor');
+
+    this.getServicio();
   }
 
   public getServicio () {
-    this._servicioService.getServicio(this.formulario.value.codigo).subscribe((data: Servicio) => {
-      this.servicio = data;
-      console.log(JSON.stringify(this.servicio));
+    this._servicioService.getAllServicios().subscribe((data: Servicio[]) => {
+      this.allServicios = data;
+    },
+    error => {
+      console.log(error);
     });
   }
 
   public crearServicio () {
     this.servicio = this.formulario.value;
+    this.servicio.body = this.body;
     this._servicioService.crearServicio(this.servicio).subscribe(
       data => {
         this.inicializarFormulario();
@@ -62,7 +90,13 @@ export class ServicioComponent implements OnInit {
     );
   }
 
-  public onChange(code) {
-    console.log('new code', code);
+  public selectService(serviceSelected: Servicio) {
+    this.formulario.setValue({
+      codigo: serviceSelected.codigo,
+      nombre: serviceSelected.nombre,
+      ruta: serviceSelected.ruta,
+      metodo: serviceSelected.metodo
+    });
+    this.body = serviceSelected.body;
   }
 }
