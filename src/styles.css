@@ -27,7 +27,7 @@ body {
     background-color: #eeeeee;
 }
 
-.page-head-title {
+.page-head-title, .page-head-title-black {
     display: block;
     margin-bottom: 5px;
     margin-top: 6px;
@@ -37,6 +37,10 @@ body {
     color: white;
     line-height: 36px;
 }
+
+.page-head-title-black {
+    color: black;
+} 
 
 .blinker { 
     display: inline-block;

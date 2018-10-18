@@ -1,21 +1,15 @@
-<div id="contenedorPrincipal" class="contenedorPrincipal">
-  <h1 class="titulo">Terminal Service<span class="blinker"></span></h1>
-  <p class="subTitulo">Terminal de servicios.</p>
-  <form>
-    <div class="input-group">
-      <div class="prepend">
-        <span class="input-group-text" id="basic-addon1">></span>
-      </div>
-      <input type="text" class="form-control" id="name" required placeholder="Usuario">
-    </div>
-
-    <div class="input-group">
-        <div class="prepend">
-          <span class="input-group-text" id="basic-addon1">></span>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+        <div class="card-header bg-info">
+            <h2 class="page-head-title">Prueba Weather</h2>
         </div>
-      <input type="password" class="form-control" id="password" required placeholder="Contrasena">
-    </div>
-
-    <input type="button" class="float-right" [routerLink]="['/paciente']" value="[Ingresar]"/>
-  </form>
+        <div class="card-body row">
+          <div class="col-md-12">
+            <h3 class="page-head-title-black">{{result.name}}</h3>
+            <img [src]="weatherIcon" alt="">
+          </div>
+        </div>
+      </div>
+  </div>
 </div>
