@@ -25,4 +25,8 @@ export class MusicaService {
     getPlaylist(): Observable<any> {
         return this.httpClient.get(this.API_URL, this.options);
     }
+
+    getPlayListSummary(playListUrl: string): Observable<any> {
+        return this.httpClient.get(playListUrl, this.options);
+    }
 }

@@ -1,10 +1,65 @@
-<div class="card">
-  <div class="card-header bg-info">
-      <h2 class="page-head-title">Mi Música</h2>
+<div class="row" [hidden]="isViewPlayList">
+  <div class="col-md-6" *ngFor="let item of datos.items">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <img class="rounded-circle" style="max-width: 100%; max-height: 100%; " [src]="item.images[0] != undefined ? item.images[0].url : ''" alt="">
+          </div>
+          <div class="col-sm-9">
+            <h5 class="card-title">{{item.name}} - <small class="text-muted">{{item.tracks.total}} canciones</small></h5>
+            <p class="card-text"><small class="text-muted">Creada por: {{item.owner.display_name}}</small></p>
+            <button class="btn btn-info float-right" (click)="viewPlayList(item)">Ver!</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="card-body">
-    <div *ngFor="let item of datos.items" >
-      {{item.name}} <span><img style="max-width: 100px; max-height: 100px;" [src]="item.images[0].url" alt="" class="rounded img-thumbnail"></span>
+</div>
+<div class="row" [hidden]="!isViewPlayList">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header bg-info">
+        <div class="row">
+          <div class="col-sm-2">
+            <img style="max-width: 100%; max-height: 100%; " [src]="playList.images[0] != undefined ? playList.images[0].url : ''" alt="">
+          </div>
+          <div class="col-sm-10">
+            <button class="btn btn-outline-light float-right" (click)="volver()">Volver</button>
+            <h2 class="page-head-title">{{playList.name}} - 
+              <span  style="font-weight: bold" class="navbar-text">{{playList.tracks.total}} canciones</span>
+            </h2> 
+            <p class="card-text" style="color: rgb(228, 228, 228);">{{playList.description}} 
+              <span class="navbar-text" style="color: white; font-weight: bold;" > Creada por: {{playList.owner.display_name}}</span>
+              - Seguidores <span class="badge badge-light">{{playList.followers.total}}</span>
+            </p>
+            <button class="btn btn-success" >Reproducir</button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <table class="table table-hover">
+          <tbody>
+            <tr *ngFor="let song of trackList.items">
+              <td>
+                <div class="row">
+                  <div class="col-md-10">
+                    {{song.track.name}} - 
+                    <small *ngFor="let artist of song.track.artists" class="text-muted">{{artist.name}}, </small>
+                    <small class="text-muted"> ({{song.track.album.name}})</small>
+                  </div>
+                  <div class="col-md-1">
+                    {{millisToMinutesAndSeconds(song.track.duration_ms)}}
+                  </div>
+                  <div class="col-md-1">
+                    <button type="button" class="btn btn-outline-success rounded-circle"><span class="fa fa-play"></span></button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
